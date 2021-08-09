@@ -1,5 +1,7 @@
 # Algorithms, Data Structures and Problem Solving
 
+## About
+
 Repository to keeps my studies about, Algorithms, Data Structures and Problem Solving minimally organized.
 
 ## Directories
