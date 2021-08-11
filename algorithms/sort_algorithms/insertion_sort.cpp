@@ -9,16 +9,15 @@ void show_array(int number_array[], int array_size) {
 }
 
 void insertion_sort(int *number_array, int array_size) {
-	for(int j = 1; j < array_size; j++) {
-		int key = number_array[j];
-		int i = j - 1;
+	for(int i = 1; i < array_size; i++) {
+		int key = number_array[i];
+		int j = i - 1;
 
-		while(i >= 0 && number_array[i] > key) {
-			number_array[i + 1] = number_array[i];
-			i--;
+		while(j >= 0 && number_array[j] > key) {
+			number_array[j + 1] = number_array[j];
+			j--;
 		}
-
-		number_array[i + 1] = key;
+		number_array[j + 1] = key;
 	}
 }
 
