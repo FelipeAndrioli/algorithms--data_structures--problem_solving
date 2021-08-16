@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 class Solution {
 	public:
@@ -12,12 +13,32 @@ class Solution {
 			std::cout << std::endl;
 		}
 
+		std::vector<int> twoSumOptimized(std::vector<int>& nums, int target) {
+			//O(n) solution
+			std::map<int, int> umap;
+			int difference;
+
+			for(int i = 0; i < nums.size(); i++) {
+				difference = target - nums.at(i);
+				std::cout << "Difference: " << difference << std::endl;
+
+				if(umap.find(difference) != umap.end()) {
+					std::vector<int> v{umap[difference], i};
+					return v;
+				} else {
+					umap[nums.at(i)] = i;
+				}
+			}
+
+			return std::vector<int> {};
+		}
+
 		std::vector<int> twoSum(std::vector<int>& nums, int target) {
+			//O(n^2) solution
 			std::vector<int> result;
 
 			for(int i = 0; i < nums.size(); i++) {
 				for(int j = 0; j < nums.size(); j++) {
-					std::cout << i << " - " << nums[i] << " - " << j << " - " << nums[j] << std::endl;
 					if(nums[i] + nums[j] == target && i != j) {
 						result.push_back(i);
 						result.push_back(j);
@@ -33,11 +54,12 @@ class Solution {
 
 int main() {
 	
-	std::vector<int> nums = {3, 3};
-	int target = 6;
+	std::vector<int> nums = {2, 7, 11, 15};
+	int target = 9;
 
 	Solution solution;
-	std::vector<int> targetIndex = solution.twoSum(nums, target);
+	//std::vector<int> targetIndex = solution.twoSum(nums, target);
+	std::vector<int> targetIndex = solution.twoSumOptimized(nums, target);
 	solution.showArray(targetIndex);
 
 	return 0;
