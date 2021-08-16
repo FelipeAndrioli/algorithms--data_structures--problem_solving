@@ -20,7 +20,6 @@ class Solution {
 
 			for(int i = 0; i < nums.size(); i++) {
 				difference = target - nums.at(i);
-				std::cout << "Difference: " << difference << std::endl;
 
 				if(umap.find(difference) != umap.end()) {
 					std::vector<int> v{umap[difference], i};
