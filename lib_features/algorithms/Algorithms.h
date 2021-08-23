@@ -10,6 +10,7 @@ namespace Algorithms {
     };
 
     class SearchAlgorithms {
-
+        public:
+            int linearSearch(int *array, int array_size, int value);
     };
 }

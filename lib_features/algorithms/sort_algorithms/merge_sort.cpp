@@ -4,12 +4,6 @@
 
 using namespace Algorithms;
 
-class Algorithms::SortAlgorithms {
-    public:
-        void merge(int *array, int begin, int middle, int end);
-        void mergeSort(int *array, int begin, int end);
-};
-
 void merge(int* array, int begin, int middle, int end) {
 
     //Calculate sub arrays size

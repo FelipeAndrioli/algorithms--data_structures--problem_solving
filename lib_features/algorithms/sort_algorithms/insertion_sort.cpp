@@ -4,11 +4,6 @@
 
 using namespace Algorithms;
 
-class Algorithms::SortAlgorithms {
-	public:
-		void insertionSort(int *number_array, int array_size);
-};
-
 void SortAlgorithms::insertionSort(int *number_array, int array_size) {
 	for(int i = 1; i < array_size; i++) {
 		int key = number_array[i];

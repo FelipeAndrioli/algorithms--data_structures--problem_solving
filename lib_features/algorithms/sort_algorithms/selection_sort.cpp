@@ -4,11 +4,6 @@
 
 using namespace Algorithms;
 
-class Algorithms::SortAlgorithms {
-    public:
-        void selectionSort();
-};
-
 void SortAlgorithms::selectionSort(int *array, int array_size) {
 
     for (int i = 0; i < array_size; i++) {

@@ -4,11 +4,6 @@
 
 using namespace Algorithms;
 
-class Algorithms::SortAlgorithms {
-    public:
-        void reverseInsertionSort(int *array, int array_size);
-};
-
 void SortAlgorithms::reverseInsertionSort(int *number_array, int array_size) {
     for(int i = 1; i < array_size; i++) {
         int key = number_array[i];
