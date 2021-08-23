@@ -26,7 +26,7 @@ This directory is going to keep the common functions piece of code, which is goi
 
 ## TODO's
 
-- [ ] Transform utils into a library
+- [ ] Transform algorithms and data structures into objects
     - [ ] Define a architecture for it
-    - [ ] Get the most used functions to add to it
 - [ ] Script to compile exercises
+- [ ] Transform the entire directory into a library (dll)
