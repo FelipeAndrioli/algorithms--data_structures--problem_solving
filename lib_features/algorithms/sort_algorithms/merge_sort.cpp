@@ -1,12 +1,14 @@
 #include <iostream>
 
-void showArray(int array[], int array_size) {
-    for (int i = 0; i < array_size; i++) {
-        std::cout << array[i];
-        std::cout << " ";
-    }
-    std::cout << std::endl;
-}
+#include "../Algorithms.h"
+
+using namespace Algorithms;
+
+class Algorithms::SortAlgorithms {
+    public:
+        void merge(int *array, int begin, int middle, int end);
+        void mergeSort(int *array, int begin, int end);
+};
 
 void merge(int* array, int begin, int middle, int end) {
 
@@ -61,7 +63,7 @@ void merge(int* array, int begin, int middle, int end) {
     }
 }
 
-void mergeSort(int* array, int begin, int end) {
+void SortAlgorithms::mergeSort(int* array, int begin, int end) {
 
     /*
         Split array in half until remain only one value and then
@@ -76,15 +78,4 @@ void mergeSort(int* array, int begin, int end) {
 
         merge(array, begin, middle, end);
     }
-}
-
-int main() {
-    int array[] = {21, 12, 14, 10, 1, 7, 8, 41, 123};
-    int array_size = sizeof(array) / sizeof(*array);
-
-    showArray(array, array_size);
-    mergeSort(array, 0, array_size - 1);
-    showArray(array, array_size);
-
-    return 0;
 }
