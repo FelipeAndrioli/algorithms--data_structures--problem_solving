@@ -6,6 +6,12 @@ Repository to keeps my studies about, Algorithms, Data Structures and Problem So
 
 All the stuff in this repository is going to be developed mainly in C++.
 
+## To compile
+
+Use the following line to compile all the files
+
+    g++ \lib_features\*\*\*.cpp main.cpp -o main.exe
+
 ## Directories
 
 ### algorithms
