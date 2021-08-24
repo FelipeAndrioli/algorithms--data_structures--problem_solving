@@ -32,7 +32,7 @@ This directory is going to keep the common functions piece of code, which is goi
 
 ## TODO's
 
-- [ ] Transform algorithms and data structures into objects
-    - [ ] Define a architecture for it
-- [ ] Script to compile exercises
+- [X] Transform algorithms and data structures into objects
+    - [X] Define a architecture for it
+- [X] Script to compile exercises
 - [ ] Transform the entire directory into a library (dll)
