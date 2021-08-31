@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 class Solution {
     public:
@@ -9,6 +10,31 @@ class Solution {
                 std::cout << s[i] << " ";
             }
             std::cout << std::endl;
+        }
+
+        int lengthOfLongestSubstringMap(std::string s) {
+            int start = 0;
+            int result = 0;
+            std::unordered_map<char, int> charMap;
+
+            for (int i = 0; i < s.length(); i++) {
+                if (charMap.find(s[i]) == charMap.end() || charMap[s[i]] < start) {
+                    charMap[s[i]] = i;
+                } else {
+                    if (i - start > result) {
+                        result = i - start;
+                    }
+
+                    start = charMap[s[i]] + 1;
+                    charMap[s[i]] = i;
+                }
+            }
+
+            if ((s.length() - start) > result) {
+                result = s.length() - start;
+            }
+
+            return result;
         }
 
         int lengthOfLongestSubstring(std::string s) {
@@ -57,7 +83,7 @@ int main() {
 
     for (int i = 0; i < array_size; i++) {
         std::cout << test_cases[i] << " = ";
-        std::cout << solution.lengthOfLongestSubstring(test_cases[i]) << std::endl;
+        std::cout << solution.lengthOfLongestSubstringMap(test_cases[i]) << std::endl;
     }
 
     return 0;
