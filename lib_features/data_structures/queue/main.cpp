@@ -67,34 +67,3 @@ void Queue::show_queue() {
         std::cout << "Queue is empty!" << std::endl;
     }
 }
-
-int main() {
-
-    Queue myqueue;
-    myqueue.enqueue(5);
-    myqueue.enqueue(3);
-    myqueue.enqueue(4);
-    myqueue.enqueue(6);
-    myqueue.enqueue(9);
-
-
-    if (!myqueue.is_empty()) {
-        std::cout << myqueue.front() << std::endl;
-    }
-
-    myqueue.dequeue();
-
-    if (!myqueue.is_empty()) {
-        std::cout << myqueue.front() << std::endl;
-    }
-
-    myqueue.show_queue();
-
-    if (myqueue.clear_queue()) {
-        std::cout << "Queue cleared successful" << std::endl;
-    } else {
-        std::cout << "Queue already cleared" << std::endl;
-    }
-
-    return 0;
-}
