@@ -86,20 +86,3 @@ bool Circular_Queue::dequeue() {
 
     return true;
 }
-
-int main() {
-
-    Circular_Queue *circular_queue = new Circular_Queue(3);
-
-    std::cout << circular_queue->enqueue(1) << std::endl;   //1
-    std::cout << circular_queue->enqueue(2) << std::endl;   //1
-    std::cout << circular_queue->enqueue(3) << std::endl;   //1
-    std::cout << circular_queue->enqueue(4) << std::endl;   //1
-    std::cout << circular_queue->rear() << std::endl;       //
-    std::cout << circular_queue->is_full() << std::endl;       //
-    std::cout << circular_queue->dequeue() << std::endl;    //1
-    std::cout << circular_queue->enqueue(4) << std::endl;   //1
-    std::cout << circular_queue->rear() << std::endl;       //
-    
-    return 0;
-}
