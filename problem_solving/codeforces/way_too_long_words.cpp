@@ -23,6 +23,12 @@ string abbreviate_word(string word) {
 
     abbreviated_word = word[0] + to_string(word_size) + word[word.length() - 1];
 
+    /*
+     * O(1) solution
+     *
+     * abbreviated_word = word[0] +  to_string(word.length() - 2) + word[word.length() - 1];
+     * */
+
     return abbreviated_word;
 }
 
