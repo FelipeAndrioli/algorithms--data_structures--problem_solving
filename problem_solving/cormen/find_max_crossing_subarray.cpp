@@ -59,7 +59,8 @@ int find_max_subarray_sum(int array[], int begin, int end) {
 
 int main() {
 
-    int array[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
+    //int array[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
+    int array[] = {-13, -3, -25, -20, -3, -16, -23, -18, -20, -7, -12, -5, -22, -15, -4, -7};
     int array_size = sizeof(array) / sizeof(*array);
     int max_sum = find_max_subarray_sum(array, 0, array_size - 1);
 
