@@ -9,15 +9,10 @@ void initialize_array(int n, int memo[]) {
     }
 }
 
-void show_array(int n, int memo[]) {
-    for (int i = 0; i < n; i++) {
-        cout << memo[i] << " ";
-    }
-
-    cout << endl;
-}
-
 int fib(int n) {
+
+    //O(n^2) solution
+
     if (n == 0 || n == 1) {
         return  n;
     }
@@ -26,6 +21,8 @@ int fib(int n) {
 }
 
 int fib_memoize(int n, int memo[]) {
+
+    //O(n) solution
 
     if (memo[n] != -1) {
         return memo[n];
@@ -41,6 +38,8 @@ int fib_memoize(int n, int memo[]) {
 }
 
 int fib_bottom_up(int n) {
+
+    //O(n) solution
 
     int memo[n] = {};
 
