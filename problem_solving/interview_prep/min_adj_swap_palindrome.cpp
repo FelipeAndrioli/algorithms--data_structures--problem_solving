@@ -10,7 +10,6 @@ int minimumAdjacentSwaps(string s) {
     for (int i = 0; i < string_size / 2; i++) {
         int left = i;
         int right = string_size - i - 1;
-        int count_badness = 0;
 
         while (left < right) {
             if (s[left] == s[right]) {
