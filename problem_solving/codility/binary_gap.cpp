@@ -17,18 +17,22 @@ vector<int> decimalToBinary(int N) {
 	return binary;
 }
 
-int binaryGap(vector<int> binary) {
+int binaryGap(int N) {
+
+	vector<int> binary = decimalToBinary(N);
+
 	int gap = 0;
 	int temp_gap = 0;
 
 	for (int i = 0; i < binary.size(); i++) {
 		if (binary[i] == 0) {
-			temp_gap++;
+			temp_gap++;	
 		} else if (binary[i] == 1) {
 			if (temp_gap > gap) {
 				gap = temp_gap;
-				temp_gap = 0;
 			}
+
+			temp_gap = 0;
 		}
 	}
 
@@ -37,13 +41,30 @@ int binaryGap(vector<int> binary) {
 
 int main() {
 
-	int N;
+	//int N;
+	//cin >> N;
+	//cout << binaryGap(N) << endl;
 
-	cin >> N;
+	/*
+	 * Failing tests
+	 *
+	 * 4
+	 * 561892 = 3
+	 *
+	 * 6
+	 * 74901729 = 4
+	 *
+	 * 8
+	 * 1376796946 = 5
+	 * */
 
-	vector<int> binary_array = decimalToBinary(N);
+	int one = 561892;
+	int two = 74901729;
+	int four = 1376796946;
 
-	cout << "Binary gap: " << binaryGap(binary_array) << endl;
+	cout << "-> " << binaryGap(one) << endl;
+	cout << "-> " << binaryGap(two) << endl;
+	cout << "-> " << binaryGap(four) << endl;
 
 	return 0;
 }
