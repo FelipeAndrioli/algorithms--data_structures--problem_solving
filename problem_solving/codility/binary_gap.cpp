@@ -46,30 +46,9 @@ int binaryGap(int N) {
 
 int main() {
 
-	//int N;
-	//cin >> N;
-	//cout << binaryGap(N) << endl;
-
-	/*
-	 * Failing tests
-	 *
-	 * 4
-	 * 561892 = 3
-	 *
-	 * 6
-	 * 74901729 = 4
-	 *
-	 * 8
-	 * 1376796946 = 5
-	 * */
-
-	int one = 561892;
-	int two = 74901729;
-	int four = 1376796946;
-
-	cout << "-> " << binaryGap(one) << endl;
-	cout << "-> " << binaryGap(two) << endl;
-	cout << "-> " << binaryGap(four) << endl;
+	int N;
+	cin >> N;
+	cout << "-> " << binaryGap(N) << endl;
 
 	return 0;
 }
