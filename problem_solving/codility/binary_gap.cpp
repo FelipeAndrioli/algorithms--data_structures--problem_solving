@@ -27,6 +27,11 @@ int binaryGap(int N) {
 	for (int i = 0; i < binary.size(); i++) {
 		if (binary[i] == 0) {
 			temp_gap++;	
+		} else if (binary[i] == 0 && i == binary.size() - 1) {
+			temp_gap++;
+			if (temp_gap > gap) {
+				gap = temp_gap;
+			}
 		} else if (binary[i] == 1) {
 			if (temp_gap > gap) {
 				gap = temp_gap;
