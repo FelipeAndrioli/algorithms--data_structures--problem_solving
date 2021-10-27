@@ -99,11 +99,17 @@ int main() {
 		each element of array A is an integer within the range [1..N + 1].	
 	 *
 	 * Solution:
-	 *
+	 * 
+	 * 	My initial solution was correct but wasn't the more optimized one. It create an new array with the size of N
+	 * 	and create a new array filled with 0 values. After that it loop through the A array and if the value is smaller
+	 * 	than N, we increase the correespondent value inside the array. If its bigger, than we update all the values with
+	 * 	the max_counter value.
 	 *
 	 *
 	 * Complexity:
 	 *
+	 * 	My initial solution have a time complexity of O(n + m), with n being the size of the A array, and m being the size
+	 * 	of the new array, or just N.
 	 *
 	 *
 	 * */
