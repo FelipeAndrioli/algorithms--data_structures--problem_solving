@@ -98,8 +98,15 @@ int main() {
 
 	Solution:
 
+		My initial solution was already the optimized one. It loop through the leafs and add the leaf and its second
+		into a map, then we loop through the map to check if the order is correct and get the second which the last
+		leaf falls, and then we return this second.
+
 	Complexity:
 
+		The complexity of this solution is O(n), once it loops through the array once O(n) and loop through the map
+		once O(n). Which results in a complexity of O(2 * n), as in big O notation ignores the constants it results
+		in O(n).
  *
  * */
 
