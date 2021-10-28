@@ -4,27 +4,27 @@
 using namespace std;
 
 vector<int> solution(int N, vector<int> &A) {
-	vector<int> counters;
+	vector<int> counters(N);
 	int max_counter = 0;
-
-	for (int i = 0; i < N; i++) {
-		counters.push_back(0);
-	}
+	int last_max = 0;
 
 	for (int i = 0; i < A.size(); i++) {
-		if (A[i] <= N) {
-			counters[A[i] - 1]++;
+		if (A[i] == N + 1) {
+			last_max = max_counter;
+		} else if (A[i] <= N) {
+			int index = A[i] - 1;
+			int new_counter = max(counters[index], last_max) + 1;
 
-			if (counters[A[i] - 1] > max_counter) {
-				max_counter = counters[A[i] - 1];
+			if (new_counter > max_counter) {
+				max_counter = new_counter;
 			}
-		} else {
-			if (max_counter > 0) {
-				for (int j = 0; j < counters.size(); j++) {
-					counters[j] = max_counter;
-				}
-			}
+
+			counters[index] = new_counter;
 		}
+	}
+
+	for (int i = 0; i < counters.size(); i++) {
+		counters[i] = max(counters[i], last_max);
 	}
 
 	return counters;
@@ -104,13 +104,17 @@ int main() {
 	 * 	and create a new array filled with 0 values. After that it loop through the A array and if the value is smaller
 	 * 	than N, we increase the correespondent value inside the array. If its bigger, than we update all the values with
 	 * 	the max_counter value.
-	 *
+	 *	
+	 *	The optimized solution was pretty similar with my first solution. It loop through the array once keeping track of
+	 *	the necessary values and adding it to the new array. By the end it just compare every value of the array with the
+	 *	max counter and overrite it if it is bigger.
 	 *
 	 * Complexity:
 	 *
 	 * 	My initial solution have a time complexity of O(n + m), with n being the size of the A array, and m being the size
 	 * 	of the new array, or just N.
-	 *
+	 *	
+	 *	The complexity keeps the same O(n + m).
 	 *
 	 * */
 
