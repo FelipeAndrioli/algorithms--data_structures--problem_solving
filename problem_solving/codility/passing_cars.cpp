@@ -5,18 +5,18 @@ using namespace std;
 
 int solution(vector<int> &A) {
 	int cars = 0;
+	int count = 0;
 
 	for (int i = 0; i < A.size(); i++) {
-		for (int j = i + 1; j < A.size(); j++) {
-
-			if (cars > 999999999) {
-				return -1;
-			}
-
-			if (A[i] == 0 && A[j] == 1) {
-				cars++;
-			}
+		if (A[i] == 0) {
+			count++;
+		} else if (A[i] == 1) {
+			cars += count;
 		}
+	}
+
+	if (cars > 1000000000 || cars < 1000000000) {
+		return -1;
 	}
 
 	return cars;
@@ -77,12 +77,17 @@ int main() {
 		My first solution was to loop through the array once, keep tracking of one car, and then loop again
 		looking for cars going into the opposite direction.
 
+		The second solution is to loop through the array once, when we got 0 then we need to add one to count,
+		and when we got 1, then we need to add count to cars. By the end we just check the limits to return -1 when
+		needed.
+
 		Complexity
 
 		The initial solution wasn't the optimized one, as we need to loop through the array once, and for each iteration we
 		need to loop again, the time complexity is O(n^2).
 
-
+		The second solution is optimized, once it just need to loop through the array once, counting the cars in 0 and adding
+		them to the cars variable when we find a 1 car. So the time complexity is O(n).
 	 * */
 
 	return 0;
