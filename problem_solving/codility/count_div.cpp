@@ -4,22 +4,20 @@
 using namespace std;
 
 int solution(int A, int B, int C) {
-
-	int divisables = 0;
-
-	for (int i = A; i < B; i++) {
-		if (i % C == 0) {
-			divisables++;
-		}
+	if (A % C == 0) {
+		return (B / C - A / C + 1);
 	}
 
-	return divisables;
+	return (B / C - A / C);
 }
 
 int main() {
 
-//	cout << solution(6, 11, 2) << endl;	
+	cout << solution(6, 11, 2) << endl;	
 	cout << solution(11, 345, 17) << endl;	
+	cout << solution(0, 0, 11) << endl;	
+	cout << solution(1, 1, 11) << endl;
+	cout << solution(100, 123000000, 2) << endl;
 
 	/*
 	 * Problem
@@ -46,11 +44,17 @@ int main() {
 	 * 	
 	 * 	My first solution was to loop from A to B, checking each value of it if it is divisable from C, it wasn't 
 	 * 	optimized.
+	 *	
+	 *	I wasn't able to reach a optimized solution, so I had to look for it. The one I find is pretty much similar
+	 *	to what I've been doing. It checks if the A is divisible for C, and if it is, it returns the subtraction of
+	 *	A and B divided by C plus 1 which results in the number of possible divisions. If A is not divisible for C then
+	 *	we return the subtraction of A and B divided by C.
 	 *
 	 * Complexity
 	 *	
 	 *	The first solution have a complexity of O(B - A).
 	 *
+	 * 	The optimized solution have a complexity of O(1).
 	 * */	
 
 	return 0;
