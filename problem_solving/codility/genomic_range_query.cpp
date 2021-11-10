@@ -197,13 +197,18 @@ int main() {
 	 *	from the impact factor comparing to the current DNA value and add its impact to a temporary array. The final step is to 
 	 *	loop through the temp array and get the minimum value.
 	 *
+	 * 	The optimized solution loop once through the dna string and count the occurrencies of each nucleotide storing it into a
+	 * 	matrix. Then we loop through the matrix adding the past occurrencies to the new lines, by the end we are going to have
+	 * 	all the occurencies added in the matrix. The final step consists in loop through the matrix, building the start and 
+	 * 	end ranges to get a value based on start range from the matrix and subract by a end range based value. 
+	 *
 	 * Complexity
 	 *
 	 * 	The time complexity is O(n * m), being n the received queries array size, m being the range created by the
 	 * 	received querie arrays. Despite having some more loops inside m, they are going to be constants, so we don't
 	 * 	need to count them in the complexity.
 	 * 	 
-	 * 	
+	 * 	The complexity is O(n + m), being n the string size and m the P/Q query arrays size.
 	 */
 
 	return 0;
