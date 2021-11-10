@@ -3,6 +3,52 @@
 
 using namespace std;
 
+vector<int> optimizedSolution(string &S, vector<int> &P, vector<int> &Q) {
+	vector<int> queries_answer;
+	int string_size = S.size();
+	int occurrences[string_size][4];
+	
+	fill(*occurrences, *occurrences + string_size * 4, 0);
+
+	for (int i = 0; i < string_size; i++) {
+		if (S[i] == 'A') {
+			occurrences[i][0] = 1;
+		} else if (S[i] == 'C') {
+			occurrences[i][1] = 1;
+		} else if (S[i] == 'G') {
+			occurrences[i][2] = 1;
+		} else if (S[i] == 'T') {
+			occurrences[i][3] = 1;
+		}
+	}
+
+	for (int i = 1; i < string_size; i++) {
+		for (int j = 0; j < 4; j++) {
+			occurrences[i][j] += occurrences[i - 1][j];
+		}
+	}
+
+	for (int i = 0; i < P.size(); i++) {
+		int start_range = P[i];
+		int end_range = Q[i];
+
+		for (int j = 0; j < 4; j++) {
+			int sub = 0;
+
+			if (start_range - 1 >= 0) {
+				sub = occurrences[start_range - 1][j];
+			}
+
+			if (occurrences[end_range][j] - sub > 0) {
+				queries_answer.push_back(j + 1);
+				break;
+			}
+		}
+	}
+
+	return queries_answer;
+}
+
 vector<int> solution(string &S, vector<int> &P, vector<int> &Q) {
 	
 	//I'm going to use the index to get the impact factor from each letter
@@ -41,6 +87,39 @@ vector<int> solution(string &S, vector<int> &P, vector<int> &Q) {
 	return queries_answer;
 }
 
+vector<int> mapSolution(string &S, vector<int> &P, vector<int> &Q) {
+	unordered_map<char, int> impact_factor;
+	unordered_map<char, int>::iterator it;
+
+	impact_factor['A'] = 1;
+	impact_factor['C'] = 2;
+	impact_factor['G'] = 3;
+	impact_factor['T'] = 4;
+
+	vector<int> queries_answer;
+
+	int arrays_size = P.size();
+
+	for (int i = 0; i < arrays_size; i++) {
+		auto start_range = S.begin() + P[i];
+		auto end_range = S.begin() + 1 + Q[i];
+
+		unordered_set<char> dna(start_range, end_range);
+		
+		int query_answer = INT_MAX;
+
+		for (it = impact_factor.begin(); it != impact_factor.end(); it++) {
+			if (dna.find(it->first) != dna.end()) {
+				query_answer = min(it->second, query_answer);
+			}
+		}
+
+		queries_answer.push_back(query_answer);
+	}
+		
+	return queries_answer;
+}
+
 int main() {
 
 	vector<int> P = {2, 5, 0};
@@ -51,7 +130,7 @@ int main() {
 	//vector<int> Q = {0, 1, 1};
 	//string S = "AC";
 
-	vector<int> queries = solution(S, P, Q);
+	vector<int> queries = optimizedSolution(S, P, Q);
 	
 	for (int i = 0; i < queries.size(); i++) {
 		cout << queries[i] << " ";
