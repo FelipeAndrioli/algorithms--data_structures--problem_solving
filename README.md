@@ -2,9 +2,9 @@
 
 ## About
 
-Repository to keeps my studies about, Algorithms, Data Structures and Problem Solving minimally organized.
+Repository to keeps my studies about, Algorithms, Data Structures, Problem Solving and Software Engineering minimally organized.
 
-All the stuff in this repository is going to be developed mainly in C++.
+All the stuff in this repository is going to be developed mainly in C++ and GOlang.
 
 ## Directories
 
@@ -20,13 +20,7 @@ A directory to keep mainly data_structures focused code.
 
 A directory to keep mainly problem solving focused code.
 
-### utils
+### OOP
 
-This directory is going to keep the common functions piece of code, which is going to be used many times by different pieces of code e.g. generate random numbers function.
+Inside OOP directory, I'm going to store my studies about OOP Fundamentals and Design Patterns.
 
-## TODO's
-
-- [ ] Transform algorithms and data structures into objects
-    - [ ] Define a architecture for it
-- [ ] Script to compile exercises
-- [ ] Transform the entire directory into a library (dll)
