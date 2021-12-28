@@ -29,10 +29,6 @@ int nonRecursiveBinarySearch(vector<int>& nums, int target) {
 	while (left <= right) {
 		int middle = left + (right - left) / 2;	
 
-		cout << "Generated middle value -> " << middle << endl;
-		cout << middle + 1 << " = " << nums[middle + 1] << endl;
-		cout << middle - 1 << " = " << nums[middle - 1] << endl;
-
 		if (nums[middle] == target) {
 			return middle;
 		}
